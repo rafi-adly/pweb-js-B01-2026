@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniShoo - Katalog Produk</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/catalog.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand"><span class="brand-mark">🛍️</span> MiniShoo</a>
+
+      <div class="search-wrap">
+        <input type="text" id="search-input" placeholder="Cari produk atau kategori...">
+      </div>
+
+      <div class="navbar-actions">
+        <button id="btn-cart" class="cart-btn" type="button" aria-label="Keranjang belanja">
+          🛒 <span id="cart-badge" class="cart-badge">0</span>
+        </button>
+        <span id="nav-user-slot" class="welcome-text"></span>
+        <button id="btn-logout" class="btn-secondary" type="button">Keluar</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- autoscroll (Produk Pilihan) -->
+  <section class="featured-section">
+    <div class="featured-inner">
+      <h2>Produk Pilihan</h2>
+      <div class="autoscroll-wrap">
+        <div class="autoscroll-track"></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="catalog-main">
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <select id="category-select">
+          <option value="ALL">Semua kategori</option>
+        </select>
+        <select id="sort-select">
+          <option value="default">Urutkan</option>
+          <option value="price-asc">Harga Termurah</option>
+          <option value="price-desc">Harga Termahal</option>
+          <option value="rating-desc">Rating Tertinggi</option>
+        </select>
+      </div>
+      <div class="toolbar-right">
+        <span id="result-counter"></span>
+      </div>
+    </div>
+
+    <div id="error-banner" class="error-banner" hidden>
+      <span id="error-banner-text"></span>
+      <button id="retry-btn" type="button">Coba lagi</button>
+    </div>
+
+    <div id="loading-indicator" class="loading-indicator">
+      <span class="spinner"></span> Memuat produk...
+    </div>
+
+    <div id="products-grid" class="products-grid"></div>
+
+    <div id="empty-state" class="empty-state" hidden>Tidak ada produk yang cocok dengan pencarianmu.</div>
+
+    <div class="load-more-wrap">
+      <button id="btn-show-more" class="btn-primary" type="button" style="display:none">Muat lebih banyak</button>
+    </div>
+  </main>
+
+  <!-- Panel keranjang belanja -->
+  <div id="cart-overlay" class="cart-overlay" hidden></div>
+  <div id="cart-panel" class="cart-panel" hidden aria-label="Keranjang belanja">
+    <div class="cart-panel-header">
+      <h2>Keranjang Belanja</h2>
+      <button id="cart-close" class="modal-close" type="button" aria-label="Tutup">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-panel-footer">
+      <div class="cart-total-row">
+        <span>Total belanja</span>
+        <strong id="cart-total">$0.00</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/catalog.js" defer></script>
+</body>
+</html>
